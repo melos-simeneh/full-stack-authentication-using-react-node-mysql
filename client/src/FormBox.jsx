@@ -6,10 +6,10 @@ import RegisterForm from "./RegisterForm";
 const FormBox = () => {
   return (
     <div
-      className="d-flex flex-grow-1 justify-content-center align-items-center"
+      className="d-flex flex-grow-1 justify-content-center align-items-center backgroundImage"
       style={{ height: "100vh" }}
     >
-      <Container className="border border-secondary-subtle rounded p-0 w-50">
+      <Container className="border border-secondary-subtle rounded p-0 w-50 bg-white">
         <Tabs
           defaultActiveKey="login"
           className="mb-3 nav-justified bg-light fw-bold rounded"
