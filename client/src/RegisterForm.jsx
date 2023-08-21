@@ -25,8 +25,8 @@ function RegisterForm() {
       })
       .catch((error) => {
         const status = error.response.status;
-        if (status === 404) setError("Invalid username or password");
-        else setError("Server error: server is not responding");
+        if (status === 409) setError("Username already taken");
+        else setError("Failed to create account");
         setSuccess();
       });
   };
