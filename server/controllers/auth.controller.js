@@ -60,3 +60,10 @@ exports.login = (req, res) => {
       });
   });
 };
+
+exports.logout = (req, res) => {
+  res
+    .clearCookie("accessToken")
+    .status(200)
+    .json({ status: "success", message: "logout success" });
+};
