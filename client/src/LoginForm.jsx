@@ -1,9 +1,8 @@
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-
 function LoginForm() {
   return (
-    <Form>
+    <Form className="text-center px-4 py-2 pb-4">
       <Form.Group className="mb-3">
         <Form.Control placeholder="Username" />
       </Form.Group>
