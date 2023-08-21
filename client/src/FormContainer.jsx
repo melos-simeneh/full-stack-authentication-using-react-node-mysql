@@ -1,9 +1,9 @@
 import React from "react";
-import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import { Container, Tab, Tabs } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-const FormBox = () => {
+const FormContainer = () => {
   return (
     <div
       className="d-flex flex-grow-1 justify-content-center align-items-center backgroundImage"
@@ -26,4 +26,4 @@ const FormBox = () => {
   );
 };
 
-export default FormBox;
+export default FormContainer;

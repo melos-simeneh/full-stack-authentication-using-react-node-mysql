@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useState } from "react";
+import { Alert } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -5,15 +8,32 @@ import Row from "react-bootstrap/Row";
 import { useForm } from "react-hook-form";
 
 function RegisterForm() {
+  const [success, setSuccess] = useState();
+  const [error, setError] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    axios
+      .post("http://localhost:8000/api/register", data)
+      .then((response) => {
+        setSuccess("Account created successfully");
+        setError();
+      })
+      .catch((error) => {
+        const status = error.response.status;
+        if (status === 404) setError("Invalid username or password");
+        else setError("Server error: server is not responding");
+        setSuccess();
+      });
+  };
   return (
     <Form className="px-4 py-2 pb-4" onSubmit={handleSubmit(onSubmit)}>
+      {error && <Alert variant={"danger"}>{error}</Alert>}
+      {success && <Alert variant={"success"}>{success}</Alert>}
       <Row className="mb-3">
         <Form.Group as={Col}>
           <Form.Control
@@ -28,7 +48,6 @@ function RegisterForm() {
         </Form.Group>
         <Form.Group as={Col}>
           <Form.Control
-            type="password"
             placeholder="Last Name"
             {...register("last_name", {
               required: true,
