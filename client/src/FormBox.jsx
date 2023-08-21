@@ -1,0 +1,29 @@
+import React from "react";
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+
+const FormBox = () => {
+  return (
+    <div
+      className="d-flex flex-grow-1 justify-content-center align-items-center"
+      style={{ height: "100vh" }}
+    >
+      <Container className="border border-secondary-subtle rounded p-0 w-50">
+        <Tabs
+          defaultActiveKey="login"
+          className="mb-3 nav-justified bg-light fw-bold rounded"
+        >
+          <Tab eventKey="login" title="Signin">
+            <LoginForm />
+          </Tab>
+          <Tab eventKey="register" title="Signup">
+            <RegisterForm />
+          </Tab>
+        </Tabs>
+      </Container>
+    </div>
+  );
+};
+
+export default FormBox;
