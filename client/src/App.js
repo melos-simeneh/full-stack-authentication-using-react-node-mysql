@@ -18,10 +18,10 @@ function App() {
               defaultActiveKey="login"
               className="mb-3 nav-justified bg-light fw-bold rounded"
             >
-              <Tab eventKey="login" title="Login">
+              <Tab eventKey="login" title="Signin">
                 <LoginForm />
               </Tab>
-              <Tab eventKey="register" title="Register">
+              <Tab eventKey="register" title="Signup">
                 <RegisterForm />
               </Tab>
             </Tabs>
