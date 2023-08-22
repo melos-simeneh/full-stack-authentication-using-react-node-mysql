@@ -24,7 +24,7 @@ function RegisterForm() {
         setError();
       })
       .catch((error) => {
-        const status = error.response.status;
+        const status = error.response?.status;
         if (status === 409) setError("Username already taken");
         else setError("Failed to create account");
         setSuccess();

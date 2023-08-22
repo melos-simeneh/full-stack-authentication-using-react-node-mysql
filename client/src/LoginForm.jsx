@@ -1,8 +1,9 @@
-import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "./AuthContext";
+import axios from "axios";
 
 function LoginForm() {
   const [error, setError] = useState();
@@ -12,15 +13,15 @@ function LoginForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const { login } = useContext(AuthContext);
+  const onSubmit = async (data) => {
     axios
-      .post("http://localhost:8000/api/login", data)
-      .then((response) => {
-        alert(JSON.stringify(response.data));
-        setError();
+      .post("http://localhost:8000/api/login", data, {
+        withCredentials: true,
       })
+      .then((res) => {})
       .catch((error) => {
-        const status = error.response.status;
+        const status = error.response?.status;
         if (status === 404) setError("Invalid username or password");
         else setError("Server error: server is not responding");
       });

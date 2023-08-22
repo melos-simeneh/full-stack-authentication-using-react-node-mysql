@@ -6,6 +6,10 @@ const authRoutes = require("./routes/auth.routes");
 const app = express();
 
 //Middlewares
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentails", true);
+  next();
+});
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
