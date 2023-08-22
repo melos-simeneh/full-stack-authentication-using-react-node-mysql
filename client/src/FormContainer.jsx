@@ -10,7 +10,7 @@ const FormContainer = () => {
       style={{ height: "100vh" }}
     >
       <Alert variant={"primary"} className="w-50 text-center py-1">
-        <h2 className="fs-bold">React Authentication App</h2>
+        <h2>React Authentication App</h2>
       </Alert>
       <Container className="border border-secondary-subtle rounded p-0 w-50 bg-white">
         <Tabs
